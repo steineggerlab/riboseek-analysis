@@ -58,3 +58,7 @@ This directory contains the scripts to compute mu / lambda values for the E-valu
 * samplemulambda.cpp: compute mu / lambda values given the raw scores of the alignments.
 * fit_x_to_y.R: fit the theoretical E-value to the empirical E-value.
 * prep_plot_evalues.py: given the theoretical E-values, compute the empirical E-values and plot the theoretical E-values with the empirical E-values.
+
+## Miscellaneous
+* scripts/cluster_dir.py: cluster PDB files in a directory by running all-to-all pairwise alignments with US-align and then cluster the pairwise alignments with MCL:\
+` python scripts/cluster_dir.py INPUT_DIR --method mcl --inflation 2.0 --rep central`
