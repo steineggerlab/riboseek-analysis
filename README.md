@@ -30,7 +30,8 @@ awk '{sum+=$4} END {print sum/NR, NR}' roc1_difficult.count
 If you want to compute precision-recall curves, you can use the following command:
 ```
 # Use --score bits to get the precision-recall curve of vanilla Smith-Waterman
-python scripts/bench_macro_pr.py --lookup Rfam_benchmark/rfam_lookup_target.tsv --m8 results_cleaned.m8 --mode evalue --score evalue --out pr_aln
+python scripts/bench_macro_pr.py --lookup Rfam_benchmark/rfam_lookup_target.tsv \
+--m8 results_cleaned.m8 --mode evalue --score evalue --out pr_aln
 ```
 
 ## Dfam_benchmark
@@ -40,13 +41,15 @@ This directory contains the queries and the targets used for the Dfam benchmark.
 * dfam_lookup_target.tsv: contains the lookup table for mapping target sequences to their respective families in Dfam.
 * target_dfam.tsv: contains if the target sequences are reverse complemented or not.
 
-With the queries and targets, run search tools (nhmmer / blastn / Riboseek) to get the results in a tabular format (e.g., results.m8), then run the same commands as above to compute the ROC1-AUC and precision-recall curves.
+With the queries and targets, run search tools (nhmmer / blastn / Riboseek) to get the results in a tabular format (e.g., results.m8), \
+then run the same commands as above to compute the ROC1-AUC and precision-recall curves.
 
 ## Computing nhmmer MSA
-Use `scripts/rna_to_a3m.py` to get the multiple sequence alignment (MSA) from given query sequences.
+Use `scripts/rna_to_a3m.py` to get the multiple sequence alignment (MSA) from given query sequences.\
 You can run the following command:
 ```
-python scripts/rna_to_a3m.py --input query.fasta --output_dir output_dir --db1 /path/to/RNAcentral.fasta --db2 /path/to/NT.fasta --max_sequences 30000
+python scripts/rna_to_a3m.py --input query.fasta --output_dir output_dir \
+--db1 /path/to/RNAcentral.fasta --db2 /path/to/NT.fasta --max_sequences 30000
 ```
 You need HMMER package to run the script.
 
